@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include "navbar.html.twig" %}
+
+<div class="m-5">
+    <div class="row">
+        <h1>Testimonials</h1>
+            <ul>
+                {% for testimonial in testimonials %}
+                <div class="col-md-4">
+                    <li class="list-unstyled">
+                    <div class="card">
+                    <div class="card-body">
+                        <div class="ratings card-title">
+                            {% for i in 1..testimonial.note %}
+                                ⭐
+                            {% endfor %}
+                        </div>
+                        <h5 class="card-title">{{ testimonial.clientName }}</strong>:
+                        <p class="card-text">{{ testimonial.comment }}</p>
+                    </div>
+                    </li>
+                </div>
+                {% endfor %}
+            </ul>
+    </div>
+</div>
+{% endblock %}

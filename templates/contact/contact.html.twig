@@ -1,0 +1,14 @@
+{% block body %}
+
+            <form method="POST">
+                {{ form_start(form) }}
+                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.phoneNumber, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.subject, {'attr': {'class': 'form-control'}}) }}
+                {{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
+                <hr>
+                {{ form_row(form.submit, {'attr': {'class': 'btn btn-success'}}, { 'label': 'Send Message' }) }}
+                {{ form_end(form) }}
+            </form>
+{% endblock %}

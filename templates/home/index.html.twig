@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Garage V. Parrot{% endblock %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Garage V. Parrot</h1>
+            <p class="lead">Prendre soin avec vous de votre véhicule</p>
+            <hr class="my-4">
+            <div class="row">
+            <div class="col-md-6">
+            <h3>Véhicules d'occasions certifiés Parrot et entretenus par nos mains d'experts</h3>
+            <div id="carCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for car in cars %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img src="{{ car.imageGallery }}" class="d-block w-100" alt="{{ car.brand }} {{ car.model }}">
+                            <div class="carousel-caption">
+                                <h3>{{ car.brand }} {{ car.model }}</h3>
+                                <p>{{ car.year }} | {{ car.mileage }} km | {{ car.price }}€</p>
+                                <a class="btn btn-primary btn-lg" href="{{ path('contact', {'subject': car.brand ~' '~ car.model }) }}" role="button">Détails</a>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <p>Nous vous proposons à la vente une collection de véhicules entretenus ou reconditionnés par nos soins</p>
+                <p>Nous effectuons également la reprise de votre véhicule</p>
+            </div>
+            <hr class="my-4">
+            <div class="">
+            <h3>Nos services</h3>
+            {% include "service/services.html.twig"  with {'services': services} %}
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

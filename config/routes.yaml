@@ -1,0 +1,6 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+# contact:
+#     path: '/contact/{subject}'
+#     controller: 'App\Controller\ContactController::index'

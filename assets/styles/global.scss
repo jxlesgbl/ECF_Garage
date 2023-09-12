@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200&family=Rajdhani&display=swap');
+
+$primary: #D92332;
+$secondary: #D94350;
+$success: #262526;
+$white: #F2F2F2;
+
+body {
+    background-color: $white;
+}
+
+.wrapper {
+    min-height: calc(100% - 60px); /* Adjust 60px to the height of your footer */
+    padding-bottom: 60px; /* Adjust 60px to the height of your footer */
+}
+
+footer{
+    margin-top: 5%;
+    background-color: $success;
+    padding: 20px; /* Add padding for spacing */
+    text-align: center; /* Center content horizontally */
+    position: relative; /* Position relative to its containing block */
+    bottom: 0; /* Stick it to the bottom */
+    width: 100%; /* Full width */
+    &>*{
+        color: $white;
+    }
+}
+
+*{
+    font-family: 'Barlow', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, nav {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.btn{
+    background-color: $success;
+}
+
+.login{
+    position: absolute;
+    right: 10px;
+}
+
+#delete-car{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    z-index: 1;
+}
+
+.Carousel{
+    width: 10em;
+}
+
+@import "~bootstrap/scss/bootstrap";
