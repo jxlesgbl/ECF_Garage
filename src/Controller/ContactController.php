@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\WeeklyOpeningHours;
 use App\Form\ContactFormType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,8 +13,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request, string $subject = null): Response
+    public function contact(Request $request, string $subject = null, EntityManagerInterface $em): Response
     {
+        $openingHours = $em->getRepository(WeeklyOpeningHours::class)->findAll();
+
         $form = $this->createForm(ContactFormType::class, null, ['subject' => $subject]);
         $form->handleRequest($request);
 
@@ -48,6 +52,7 @@ class ContactController extends AbstractController
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
+            'openingHours' => $openingHours,
         ]);
     }
 }

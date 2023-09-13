@@ -17,13 +17,9 @@
                 <div class="opening-hours">
                     <h3 class="mb-3">Horaires</h3>
                     <ul class="list-unstyled">
-                        <li><strong class="text-primary">Lundi</strong> <span class="float-end">8:00 AM - 6:00 PM</span></li>
-                        <li><strong class="text-primary">Mardi</strong> <span class="float-end">8:00 AM - 6:00 PM</span></li>
-                        <li><strong class="text-primary">Mercredi</strong> <span class="float-end">8:00 AM - 6:00 PM</span></li>
-                        <li><strong class="text-primary">Jeudi</strong> <span class="float-end">8:00 AM - 6:00 PM</span></li>
-                        <li><strong class="text-primary">Vendredi</strong> <span class="float-end">8:00 AM - 6:00 PM</span></li>
-                        <li><strong class="text-primary">Samedi</strong> <span class="float-end">9:00 AM - 1:00 PM</span></li>
-                        <li><strong class="text-primary">Dimanche</strong> <span class="float-end">Closed</span></li>
+                    {% for hours in openingHours %}
+                        <li><strong class="text-primary">{{ hours.dayOfWeek }}</strong> <span class="float-end">{{ hours.openingTime }} - {{ hours.closingTime }}</span></li>
+                    {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -32,20 +32,21 @@ class AdminController extends AbstractController
     public function manageOpeningHours(Request $request, EntityManagerInterface $em)
     {
         $openingHours = $em->getRepository(WeeklyOpeningHours::class)->findAll();
-        // $weeklyOpeningHours = new WeeklyOpeningHours();
-        // $weeklyOpeningHours->setOpeningTime($openingHours);
 
-        $form = $this->createForm(WeeklyOpeningHoursType::class, ['openingHours' => $openingHours]);
+        $form = $this->createForm(WeeklyOpeningHoursType::class, $openingHours);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $em->persist($openingHours);
             $em->flush();
 
-            return $this->redirectToRoute('admin_opening_hours');
+            $this->addFlash('success', 'Horaires mis à jour avec succès!');
+
+            return $this->render('admin_opening_hours');
         }
 
         return $this->render('admin/opening-hours.html.twig', [
-            'opening_hours' => $openingHours,
             'form' => $form->createView(),
         ]);
     }
