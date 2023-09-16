@@ -14,12 +14,28 @@
             {% include "contact/contact.html.twig" %}
             </div>
             <div class="col-md-6">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-warning" href="{{ path('admin_opening_hours') }}">Modifier les horaires</a>
+            {% endif %}
                 <div class="opening-hours">
                     <h3 class="mb-3">Horaires</h3>
                     <ul class="list-unstyled">
-                    {% for hours in openingHours %}
-                        <li><strong class="text-primary">{{ hours.dayOfWeek }}</strong> <span class="float-end">{{ hours.openingTime }} - {{ hours.closingTime }}</span></li>
-                    {% endfor %}
+
+                    {# <pre>
+                        {{ dump(openingHours) }}
+                    </pre> #}
+                    {% if openingHours is defined %}
+                        {% for openingHour in openingHours %}
+                            <li><strong class="text-primary">{{ openingHour.dayOfWeek }}</strong> <span class="float-end">{{ openingHour.openingTime }} - {{ openingHour.closingTime }}</span></li>
+                        {% endfor %}
+                    {% endif %}
+                        <li><strong class="text-primary">Lundi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Mardi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Mercredi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Jeudi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Vendredi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Samedi</strong> <span class="float-end">08:00 - 19:00</span></li>
+                        <li><strong class="text-primary">Dimanche</strong> <span class="float-end">Closed</span></li>
                     </ul>
                 </div>
             </div>

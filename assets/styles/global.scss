@@ -6,8 +6,13 @@ $secondary: #D94350;
 $success: #262526;
 $white: #F2F2F2;
 
+html{
+    height: 100vh;
+}
+
 body {
     background-color: $white;
+    height: 100%;
 }
 
 .wrapper {
@@ -55,5 +60,6 @@ h1, h2, h3, h4, h5, h6, nav {
 .Carousel{
     width: 10em;
 }
+
 
 @import "~bootstrap/scss/bootstrap";

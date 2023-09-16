@@ -38,13 +38,19 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $em->persist($openingHours);
+            foreach ($openingHours as $openingHour){
+                $em->persist($openingHour);
+            }
             $em->flush();
 
             $this->addFlash('success', 'Horaires mis à jour avec succès!');
 
-            return $this->render('admin_opening_hours');
+            return $this->redirectToRoute('contact', [
+                'openingHours' => $openingHours,
+            ]);
         }
+
+        $updatedOpeningHours = $em->getRepository(WeeklyOpeningHours::class)->findAll();
 
         return $this->render('admin/opening-hours.html.twig', [
             'form' => $form->createView(),

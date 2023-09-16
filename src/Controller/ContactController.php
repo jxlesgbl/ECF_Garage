@@ -49,7 +49,7 @@ class ContactController extends AbstractController
 
             return $this->redirectToRoute('app_car_list'); // Redirect to your car list page or any other page
         }
-
+        dump($openingHours);
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
             'openingHours' => $openingHours,
