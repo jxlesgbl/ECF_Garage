@@ -1,7 +1,5 @@
 # ECF_Garage
 
-# Projet Garage Web
-
 ## Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur votre machine :
