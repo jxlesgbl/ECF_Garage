@@ -44,10 +44,8 @@ Accès au Back-Office (Administration)
 
 Si les fixtures ne sont pas définies, veuillez dans le RegistrationController enlever le préfixe 'admin/' de la route 'admin/register' de la fonction register(), afin de pouvoir créer votre compte admin à l'url /register/.
 
-Accédez à la page de connexion : http://localhost:8000/login
+Accédez ensuite à la page de connexion : http://localhost:8000/login
 
-Connectez-vous avec les identifiants par défaut :
+Connectez-vous avec les identifiants définis
 
-Nom d'utilisateur : admin
-Mot de passe : admin
 Une fois connecté, vous aurez accès aux fonctionnalités d'administration.
