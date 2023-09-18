@@ -26,7 +26,10 @@
                     </pre> #}
                     {% if openingHours is defined %}
                         {% for openingHour in openingHours %}
-                            <li><strong class="text-primary">{{ openingHour.dayOfWeek }}</strong> <span class="float-end">{{ openingHour.openingTime }} - {{ openingHour.closingTime }}</span></li>
+                            <li>
+                                <strong class="text-primary">{{ openingHour.dayOfWeek }}</strong>
+                                <span class="float-end">{{ openingHour.openingTime }} - {{ openingHour.closingTime }}</span>
+                            </li>
                         {% endfor %}
                     {% endif %}
                         <li><strong class="text-primary">Lundi</strong> <span class="float-end">08:00 - 19:00</span></li>
