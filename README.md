@@ -40,9 +40,9 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 
 Accès au Back-Office (Administration)
 
-Pour accéder au back-office du site en tant qu'administrateur, suivez ces étapes :
+# Pour accéder au back-office du site en tant qu'administrateur, suivez ces étapes :
 
-Se reporter au dossier pour explications.
+Si les fixtures ne sont pas définies, veuillez dans le RegistrationController enlever le préfixe 'admin/' de la route 'admin/register' de la fonction register(), afin de pouvoir créer votre compte admin à l'url /register/.
 
 Accédez à la page de connexion : http://localhost:8000/login
 
