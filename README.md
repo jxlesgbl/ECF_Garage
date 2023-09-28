@@ -38,9 +38,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
    
    symfony server:start
 
-# Il vous faudra aussi, afin de build le CSS, installer yarn afin de lancer la commande : yarn encore dev --watch
-
-Accès au Back-Office (Administration)
+# Il vous faudra aussi, afin de build le CSS, installer yarn (par npm ou homebrew si vous êtes sur MacOS) afin de lancer la commande : yarn encore dev --watch
 
 # Pour accéder au back-office du site en tant qu'administrateur, suivez ces étapes :
 
