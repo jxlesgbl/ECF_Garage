@@ -13,11 +13,11 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 
 1. Clonez ce dépôt sur votre machine :
   
-   git clone https://github.com/votre-utilisateur/projet-garage-web.git
+   git clone https://github.com/jxlesgbl/ECF_Garage.git
 
 2. Accédez au répertoire du projet:
 
-   cd projet-garage-web
+   cd ECF_Garage
 
 3. Installez les dépendances PHP avec Composer :
 
