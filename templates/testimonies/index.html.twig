@@ -6,24 +6,25 @@
 <div class="m-5">
     <div class="row">
         <h1>Testimonials</h1>
-            <ul>
-                {% for testimonial in testimonials %}
-                <div class="col-md-4">
-                    <li class="list-unstyled">
-                    <div class="card">
-                    <div class="card-body">
-                        <div class="ratings card-title">
-                            {% for i in 1..testimonial.note %}
-                                ⭐
-                            {% endfor %}
-                        </div>
-                        <h5 class="card-title">{{ testimonial.clientName }}</strong>:
-                        <p class="card-text">{{ testimonial.comment }}</p>
+        <ul>
+            {% for testimonial in testimonials %}
+            <div class="col-md-4">
+                <li class="list-unstyled">
+                <div class="card">
+                <div class="card-body">
+                    <div class="ratings card-title">
+                        {% for i in 1..testimonial.note %}
+                            ⭐
+                        {% endfor %}
                     </div>
-                    </li>
+                    <h5 class="card-title">{{ testimonial.clientName }}</strong>:
+                    <p class="card-text">{{ testimonial.comment }}</p>
                 </div>
-                {% endfor %}
-            </ul>
+                </li>
+            </div>
+            {% endfor %}
+        </ul>
+        <a href="{{ path('testimonial_new') }}" class="btn-success"></a>
     </div>
 </div>
 {% endblock %}
