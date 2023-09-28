@@ -23,18 +23,44 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 
    composer install
 
-4. Copiez le fichier .env et configurez-le avec les informations de votre base de données PostgreSQL :
+4. Créez votre BDD puis configurez le fichier .env avec les informations de votre base de données PostgreSQL :
+    
+    a. Ouvrez une console ou un terminal où vous avez accès à PostgreSQL.
+    
+    b. Connectez-vous à PostgreSQL en utilisant un utilisateur qui a les privilèges nécessaires "ADMIN" pour créer des rôles et des bases de données. Par défaut, l'utilisateur "postgres" a ces privilèges. Vous pouvez vous connecter en utilisant la commande suivante (vous serez invité à saisir le mot de passe de l'utilisateur) :
+    
+       ```bash
+       psql -U postgres *(ou votre user ADMIN)* -d template1
+       ```
+    
+    c. Une fois connecté, vous pouvez créer un nouveau rôle (utilisateur) avec la commande CREATE ROLE. Par exemple, pour créer un rôle nommé "jules" avec un mot de passe, vous pouvez utiliser cette commande (remplacez "votre_mot_de_passe" par le mot de passe souhaité) :
+    
+       ```sql
+       CREATE ROLE votre_utilisateur WITH LOGIN PASSWORD 'votre_mot_de_passe';
+       ```
+    
+       Assurez-vous d'utiliser un mot de passe fort et sécurisé.
+    
+    d. Une fois que vous avez créé le rôle, avant de quitter la console PostgreSQL en utilisant la commande suivante :
+   
+      donnez les privilèges de création de db à votre utilisateur: ```ALTER USER votre_utilisateur CREATEDB;```
+   Puis quittez :
+       ```sql
+       \q
+       ```
 
-   cp .env.dist .env
-   Éditez ensuite le fichier .env pour définir les paramètres de connexion à votre base de données.
+     Éditez le fichier .env pour définir les paramètres de connexion à votre base de données.: DATABASE_URL="postgresql://user:password@127.0.0.1:5432/{nom_de_votre_BDD}?serverVersion=15&charset=utf8"
 
-5. Créez la base de données et exécutez les migrations :
+4. Créez/reliez la base de données et exécutez les migrations :
    
    php bin/console doctrine:database:create
    
    php bin/console doctrine:migrations:migrate
 
-7. Démarrez le serveur de développement Symfony :
+   Si vous avez des erreurs: 
+    php bin/console doctrine:schema:update
+
+6. Démarrez le serveur de développement Symfony :
    
    symfony server:start
 
