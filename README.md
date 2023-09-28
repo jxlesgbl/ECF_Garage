@@ -38,6 +38,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
    
    symfony server:start
 
+# Il vous faudra aussi, afin de build le CSS, installer yarn afin de lancer la commande : yarn encore dev --watch
 
 Accès au Back-Office (Administration)
 
